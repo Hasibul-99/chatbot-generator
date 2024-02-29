@@ -49,22 +49,22 @@ function send() {
     addMsg(msg);
     loadingMsg();
     //DELEAY MESSAGE RESPOSE Echo
-    // window.setTimeout(addResponseMsg, 1000, msg);
+    window.setTimeout(addResponseMsg, 1000, msg);
     let url = `${baseUrl}chat`;
 
-    const options = {
-        method: 'POST',
-        headers: {'Content-Type': 'application/json', 'User-Agent': 'insomnia/8.6.1'},
-        body: `{"message": "${msg}"}`
-      };
+    // const options = {
+    //     method: 'POST',
+    //     headers: {'Content-Type': 'application/json', 'User-Agent': 'insomnia/8.6.1'},
+    //     body: `{"message": "${msg}"}`
+    //   };
       
-      fetch(url, options)
-        .then(response => response.json())
-        .then(response => {
-            addResponseMsg(response?.answer);
-            removeLoadingMsg()
-        })
-        .catch(err => console.error(err));
+    //   fetch(url, options)
+    //     .then(response => response.json())
+    //     .then(response => {
+    //         addResponseMsg(response?.answer);
+    //         removeLoadingMsg()
+    //     })
+    //     .catch(err => console.error(err));
 };
 
 function loadingMsg() {
@@ -124,7 +124,7 @@ document.getElementById("chatbot_toggle").onclick = function () {
         document.getElementById("chatbot").classList.remove("collapsed")
         document.getElementById("chatbot_toggle").children[0].style.display = "none"
         document.getElementById("chatbot_toggle").children[1].style.display = ""
-        // setTimeout(addResponseMsg, 1000, "Hi")
+        setTimeout(addResponseMsg, 1000, "Hi")
     }
     else {
         document.getElementById("chatbot").classList.add("collapsed")
